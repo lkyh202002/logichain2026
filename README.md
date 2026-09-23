@@ -1,8 +1,18 @@
 # logichain2026
-dashboard
 
-## Base-Case Financial Model (baseline trước thông báo tăng giá)
+Dashboard for the LogiChain 2025 base-case financial model.
 
-- `models/LogiChain_2025_Base_Case_Financial_Model.xlsx`: mô hình COGS baseline cho FB_SET_001, xây từ sheet
-  `BOM & COGS Ratio` (kèm Supplier Profile và Factory Information). Mở sheet **Cover** để xem hướng dẫn và giả định.
-- `scripts/build_base_case_model.py`: script dựng lại mô hình từ file dữ liệu gốc (`python scripts/build_base_case_model.py`).
+## Repository contents
+
+- `models/LogiChain_2025_Base_Case_Financial_Model.xlsx` — generated Excel model
+- `scripts/build_base_case_model.py` — workbook generator for the base-case financial model
+- `scripts/build_dashboard.py` — dashboard generator based on the model output
+- `dashboard/index.html` — generated dashboard page
+
+## Build the dashboard
+
+```bash
+python scripts/build_dashboard.py
+```
+
+This script reads the financial model workbook and generates a browser-ready dashboard in `dashboard/index.html`.
