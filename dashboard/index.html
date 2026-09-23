@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LogiChain 2025 Dashboard</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #dfe7f3;
+      --primary: #1f4e79;
+      --accent: #2e7d32;
+      --shadow: 0 10px 25px rgba(31, 78, 121, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Arial, sans-serif; background: var(--bg); color: var(--ink);
+    }
+    .container { max-width: 1250px; margin: 32px auto; padding: 0 20px; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .title { font-size: 2rem; font-weight: 700; color: var(--primary); }
+    .badge {
+      background: #e8f4ea; color: var(--accent); border: 1px solid #bfe0c5; border-radius: 999px;
+      padding: 8px 12px; font-weight: 700;
+    }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(180px, 1fr)); gap: 16px; margin-bottom: 26px; }
+    .kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 18px; }
+    .kpi .label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .kpi .value { margin-top: 10px; font-size: clamp(1.5rem, 2vw, 2.2rem); font-weight: 700; color: var(--primary); }
+    .kpi .meta { margin-top: 8px; color: var(--muted); font-size: 0.78rem; }
+    .panel-grid { display: grid; grid-template-columns: repeat(2, minmax(300px, 1fr)); gap: 20px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 18px; }
+    .panel h3 { margin: 0 0 14px; color: var(--primary); font-size: 1.1rem; }
+    .bar-row { margin-bottom: 12px; }
+    .bar-label { display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--ink); font-size: 0.9rem; }
+    .bar { height: 10px; background: #edf2f7; border-radius: 999px; overflow: hidden; }
+    .bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--primary), #5da5d8); border-radius: inherit; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+    th { color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+    .status { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; }
+    .status.ok { background: #e8f5e9; color: #166534; }
+    .status.shortfall { background: #fff1f2; color: #b91c1c; }
+    @media (max-width: 860px) {
+      .grid, .panel-grid { grid-template-columns: 1fr; }
+      .header { display: block; }
+      .badge { display: inline-block; margin-top: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="title">LogiChain 2025 - Base-Case Financial Dashboard</div>
+      <div class="badge">BASE CASE</div>
+    </div>
+
+    <div class="grid">
+      <div class="kpi">
+        <div class="label">COGS per set</div>
+        <div class="value">$182.35</div>
+        <div class="meta">USD/set</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Monthly output</div>
+        <div class="value">20,400</div>
+        <div class="meta">sets</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Annual output</div>
+        <div class="value">244,800</div>
+        <div class="meta">sets</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Annual COGS</div>
+        <div class="value">$44,691,600</div>
+        <div class="meta">USD/year</div>
+      </div>
+    </div>
+
+    <div class="panel-grid">
+      <div class="panel">
+        <h3>COGS by Component</h3>
+        <div class="bar-row"><div class="bar-label"><span>Front bracket</span><span>21.0%</span></div><div class="bar"><span style="width: 21%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Rotor hub</span><span>19.0%</span></div><div class="bar"><span style="width: 19%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Caliper body</span><span>15.0%</span></div><div class="bar"><span style="width: 15%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Brake pads</span><span>12.0%</span></div><div class="bar"><span style="width: 12%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Fasteners</span><span>10.0%</span></div><div class="bar"><span style="width: 10%"></span></div></div>
+      </div>
+
+      <div class="panel">
+        <h3>COGS by Material</h3>
+        <div class="bar-row"><div class="bar-label"><span>Steel</span><span>29.0%</span></div><div class="bar"><span style="width: 29%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Aluminum</span><span>24.0%</span></div><div class="bar"><span style="width: 24%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Rubber</span><span>17.0%</span></div><div class="bar"><span style="width: 17%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Cast iron</span><span>14.0%</span></div><div class="bar"><span style="width: 14%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Adhesive</span><span>8.0%</span></div><div class="bar"><span style="width: 8%"></span></div></div>
+      </div>
+
+      <div class="panel">
+        <h3>COGS by Supplier</h3>
+        <div class="bar-row"><div class="bar-label"><span>Supplier A</span><span>36.0%</span></div><div class="bar"><span style="width: 36%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Supplier B</span><span>28.0%</span></div><div class="bar"><span style="width: 28%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Supplier C</span><span>19.0%</span></div><div class="bar"><span style="width: 19%"></span></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Supplier D</span><span>10.0%</span></div><div class="bar"><span style="width: 10%"></span></div></div>
+      </div>
+
+      <div class="panel">
+        <h3>Capacity Check</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Line</th>
+              <th>Coverage</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>L0</td><td>1.00</td><td><span class="status ok">OK</span></td></tr>
+            <tr><td>L1</td><td>0.94</td><td><span class="status shortfall">Shortfall</span></td></tr>
+            <tr><td>L2</td><td>0.98</td><td><span class="status ok">OK</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
